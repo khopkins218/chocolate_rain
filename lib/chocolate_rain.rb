@@ -9,10 +9,17 @@ require 'logger'
   ftp_worker
 ).each{|m| require File.dirname(__FILE__) + '/chocolate_rain/' + m }
 
+
 module ChocolateRain
-  puts "Starting MailFetcher"
-  MailFetcher.start
-  puts "Starting FtpMachine"
-  FtpMachine.start
-  puts "All started"
+class Loader
+
+  def self.do
+    puts "Starting MailFetcher"
+    ChocolateRain::MailFetcher.start
+    puts "Starting FtpMachine"
+    ChocolateRain::FtpMachine.start
+    puts "All started"
+  end
+  
+end
 end

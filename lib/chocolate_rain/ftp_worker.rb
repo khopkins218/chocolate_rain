@@ -3,7 +3,7 @@ require 'fileutils'
 
 module ChocolateRain
   class FtpWorker < ActionMailer::Base
-    def do_work
+    def self.do_work
       @@ftp_creds = YAML.load(File.open("config/fms_config.yml"))["#{Rails.env}"]
 
       @local_files = []
